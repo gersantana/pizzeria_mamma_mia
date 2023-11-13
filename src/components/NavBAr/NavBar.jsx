@@ -1,12 +1,13 @@
+import "./NavBar.css"
 import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
 	return (
-		<nav>
+		<nav className="flex flex-row gap-5 justify-around items-center bg-orange-400 flex-wrap px-5 nav_container ">
 			<div>
 				<Link to={"/"}>logo</Link>
 			</div>
-			<ul>
+			<ul className="flex gap-5">
 				<li>
 					<NavLink to={"/"}>Inicio</NavLink>
 				</li>
