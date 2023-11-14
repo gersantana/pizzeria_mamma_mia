@@ -4,9 +4,11 @@ import MyRoutes from './routes/MyRutes'
 
 const App = () => {
   return (
-    <div>
+    <div className=''>
       <NavBar/>
-      <MyRoutes/>
+      <section className='mt-24'>
+         <MyRoutes/>
+      </section>
     </div>
   )
 }

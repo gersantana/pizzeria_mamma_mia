@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import "./MenuPizzas.css";
 import { PizzaPageContext } from "../../context/MyContext";
+import { Link } from "react-router-dom";
 
 const MenuPizzas = () => {
+
 	const { pizzas } = useContext(PizzaPageContext);
+
 	return (
 		<>
 			<h2 className="text-center my-8 text-5xl font-bold">Elige tus Pizzas</h2>
@@ -23,9 +26,9 @@ const MenuPizzas = () => {
 						</ul>
                         <p>{`$ ${pizza.price}`}</p>
 						<div className="card-body">
-							<a href="#" className="card-link">
+							<Link to={`/pizza/${pizza.id}`} className="card-link">
 								Ver mas
-							</a>
+							</Link>
 							<button>Añadir</button>
 						</div>
 					</div>
