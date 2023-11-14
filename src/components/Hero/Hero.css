@@ -1,0 +1,11 @@
+.hero {
+    background-image: linear-gradient(to left, #3d3c3c00, #000000bd), url("https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position:0rem -8rem;
+}
+
+.hero h1 {
+    /* font-size: 4rem; */
+    /* font-weight: bold; */
+} 
+

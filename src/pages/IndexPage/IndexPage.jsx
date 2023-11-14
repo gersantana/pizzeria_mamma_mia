@@ -1,7 +1,10 @@
+import { Hero } from "../../components/Hero/Hero"
 import "./IndexPage.css"
 const IndexPage = () => {
   return (
-    <div className="text-3xl font-bold underline">IndexPage</div>
+    <div className="">
+        <Hero />
+    </div>
   )
 }
 
