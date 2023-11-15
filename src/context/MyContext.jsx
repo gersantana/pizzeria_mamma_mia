@@ -4,6 +4,7 @@ import PropsTypes from "prop-types";
 export const PizzaPageContext = createContext();
 
 export const PizzaPageProvider = ({ children }) => {
+    const [loading, setLoading] = useState(true);
 
 	const [pizzas, setPizzas] = useState([]);
 
@@ -12,19 +13,23 @@ export const PizzaPageProvider = ({ children }) => {
         try {
             const res = await fetch("/pizzas.json");
             const data = await res.json();
-            setPizzas(data);
+            if(data) {
+                setPizzas(data);
+                setLoading(false)
+            }
         } catch (error) {
             console.error("error al cargar la data", error);
         }
     };
-  
      getPizzas()
 	},[]);
  
+    
 
     //VARIABLES A PROVEER EN EL CONTEX
     const dataProvider = {
 		pizzas,
+        loading
 	};
     console.log("datos de las pizzas",pizzas);
 

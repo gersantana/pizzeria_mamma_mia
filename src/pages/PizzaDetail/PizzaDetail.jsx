@@ -4,15 +4,19 @@ import { useContext, useEffect, useState } from "react";
 import { PizzaPageContext } from "../../context/MyContext";
 const PizzaDetail = () => {
 	const { id } = useParams();
-	const { pizzas } = useContext(PizzaPageContext);
+	const { pizzas, loading } = useContext(PizzaPageContext);
 	// const [pizzaDetalle, setPizzaDetalle] = useState({})
 	const pizzaDetalle = pizzas.filter((pizza) => pizza.id == id);
 	const navigate = useNavigate();
-	
+
 	//Funcion regresar pag anterior
 	const regresar = () => {
 		navigate(-1);
 	};
+
+	if(loading) {
+        return <div className="text-center mt-48 text-4xl font-medium">Cargando...</div>;
+    }
 	// useEffect(() => {
 	//   const filtroPizza = pizzas.find((pizza) => pizza.id === id);
 	//   setPizzaDetalle(filtroPizza);
@@ -32,20 +36,20 @@ const PizzaDetail = () => {
 							<h1 className="text-2xl font-medium">{pizzaDetalle[0]?.name.toUpperCase()}</h1>
 							<p>{pizzaDetalle[0]?.desc}</p>
 							<h3 className="text-xl font-bold">Ingredientes:</h3>
-							<ul className="ml-4">
+							<ul className="ml-4 list-disc">
 								{pizzaDetalle[0].ingredients?.map((ingrediente, i) => (
 									<li key={i}>{ingrediente}</li>   
 								))}
 							</ul>
-							<div className="flex justify-between">
+							<div className="flex justify-between items-center">
 								<p className="font-bold text-2xl"> Precio: {`$${pizzaDetalle[0]?.price}`}</p>
-								<button>Carrito</button>
+								<button className="px-4 py-2 bg-green-400 rounded-xl">Agregar al carrito</button>
 							</div>
 						</div>
 					</div>
 					<div className="flex">
-						<button className=" mt-2 mx-auto" onClick={regresar}>
-							Regresar
+						<button className="flex items-center gap-1 mt-2 mx-auto border border-neutral-500 px-4 py-2 rounded-xl" onClick={regresar}>
+						<span className="text-1xl font-bold">&larr;</span> Regresar
 						</button>
 					</div>
 				</div>

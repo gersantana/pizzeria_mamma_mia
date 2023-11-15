@@ -1,8 +1,16 @@
-# React + Vite
+# Pizeria Mamma Mia!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tecnologías: React+vite, Tailwind, JavaScript, React router dom, Css, html.
 
-Currently, two official plugins are available:
+Descripción: Pagina(SPA) que simula una Pizzeria en la cual se muestra ua serie pizzas a las que se pueden acceder sus detalles y agregarlas a un carrito.
+los datos son cargados mediante un archivo Json, posee botones funcionales que permiten la navegación
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Paginas React router:
+-IndexPage.
+-PizzaDetail.
+-Carrito.
+
+Componentes:
+-NavBar.
+-Hero.
+-MenuPizzas

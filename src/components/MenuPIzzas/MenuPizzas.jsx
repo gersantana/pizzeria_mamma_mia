@@ -5,9 +5,11 @@ import { Link, useParams } from "react-router-dom";
 
 const MenuPizzas = () => {
 
-	const { pizzas } = useContext(PizzaPageContext);
+	const { pizzas, loading } = useContext(PizzaPageContext);
     const {id} = useParams()
-
+	if(loading) {
+        return <div className="text-center mt-48 text-4xl font-medium">Cargando...</div>;
+    }
 	return (
 		<>
 			<h2 className="text-center my-8 text-5xl font-bold">Elige tus Pizzas</h2>
@@ -20,17 +22,17 @@ const MenuPizzas = () => {
 							<h1 className=" text-2xl font-bold border-b-2">{pizza.name.toUpperCase()}</h1>
 						</div>
                         <h3 className="text-lg font-medium mt-3">Ingredientes:</h3>
-						<ul className="ml-4">
+						<ul className="ml-4 list-disc">
 							{pizza.ingredients?.map((ingrediente, i) => (
 								<li key={i}>{ingrediente}</li>
 							))}
 						</ul>
                         <p className="text-center text-2xl font-bold border-t-2 m-3">{`$ ${pizza.price}`}</p>
 						<div className="flex justify-around card-body">
-							<Link to={`/pizza/${pizza.id}`} className="card-link">
-								Ver mas
+							<Link to={`/pizza/${pizza.id}`} className=" bg-ros border border-neutral-500 px-4 py-2 rounded-xl">
+								Ver mas...
 							</Link>
-							<button>Añadir</button>
+							<button className="px-4 py-2 bg-green-400 rounded-xl">Agregar al carrito</button>
 						</div>
                         </div>
 						
