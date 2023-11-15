@@ -7,26 +7,29 @@ export const PizzaPageProvider = ({ children }) => {
 
 	const [pizzas, setPizzas] = useState([]);
 
-    useEffect(() => {
-        const getPizzas = async () => {
-            try {
-                const res = await fetch("src/data/pizzas.json");
-                const data = await res.json();
-                setPizzas(data);
-            } catch (error) {
-                console.error("error al cargar la data", error);
-            }
-        };
-		getPizzas();
-	},[]);
+    const getPizzas = async () => {
+        try {
+            const res = await fetch("src/data/pizzas.json");
+            const data = await res.json();
+            setPizzas(data);
+        } catch (error) {
+            console.error("error al cargar la data", error);
+        }
+    };
+  
 
-    //ACTUALIZA CUANDO SE MODIFICA O CAMBIA PIZZAS
-    useEffect(()=>{
-    },[pizzas])
+    useEffect(() => {
+        getPizzas()
+	},[]);
+ 
+    // ACTUALIZA CUANDO SE MODIFICA O CAMBIA PIZZAS
+    // useEffect(()=>{
+    // },[pizzas])
 
     //VARIABLES A PROVEER EN EL CONTEX
     const dataProvider = {
 		pizzas,
+        getPizzas
 	};
     console.log("datos de las pizzas",pizzas);
 

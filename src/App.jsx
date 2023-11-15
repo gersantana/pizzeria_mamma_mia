@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div className=''>
       <NavBar/>
-      <section className='mt-24'>
+      <section className='mt-12'>
          <MyRoutes/>
       </section>
     </div>
