@@ -21,10 +21,9 @@ const MenuPizzas = () => {
 						</div>
                         <h3 className="text-lg font-medium mt-3">Ingredientes:</h3>
 						<ul className="ml-4">
-							<li className="list-group-item">{pizza.ingredients[0]}</li>
-							<li className="list-group-item">{pizza.ingredients[1]}</li>
-							<li className="list-group-item">{pizza.ingredients[2]}</li>
-							<li className="list-group-item">{pizza.ingredients[3]}</li>
+							{pizza.ingredients?.map((ingrediente, i) => (
+								<li key={i}>{ingrediente}</li>
+							))}
 						</ul>
                         <p className="text-center text-2xl font-bold border-t-2 m-3">{`$ ${pizza.price}`}</p>
 						<div className="flex justify-around card-body">

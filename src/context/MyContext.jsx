@@ -7,9 +7,10 @@ export const PizzaPageProvider = ({ children }) => {
 
 	const [pizzas, setPizzas] = useState([]);
 
-    const getPizzas = async () => {
+    useEffect(() => {
+        const getPizzas = async () => {
         try {
-            const res = await fetch("src/data/pizzas.json");
+            const res = await fetch("/pizzas.json");
             const data = await res.json();
             setPizzas(data);
         } catch (error) {
@@ -17,19 +18,13 @@ export const PizzaPageProvider = ({ children }) => {
         }
     };
   
-
-    useEffect(() => {
-        getPizzas()
+     getPizzas()
 	},[]);
  
-    // ACTUALIZA CUANDO SE MODIFICA O CAMBIA PIZZAS
-    // useEffect(()=>{
-    // },[pizzas])
 
     //VARIABLES A PROVEER EN EL CONTEX
     const dataProvider = {
 		pizzas,
-        getPizzas
 	};
     console.log("datos de las pizzas",pizzas);
 
