@@ -31,10 +31,6 @@ export const PizzaPageProvider = ({ children }) => {
 		getPizzas();
 	}, []);
 
-	//Funcion de captar datos para carrito
-	// const agregarAlCarrito = (pizza) => {
-	//     setCarrito([...carrito, pizza])
-	// }
 	const agregarAlCarrito = (pizza) => {
 		const pizzaEnCarrito = carrito.find((p) => p.id === pizza.id);
 
@@ -51,6 +47,9 @@ export const PizzaPageProvider = ({ children }) => {
 	const totalPizzas = carrito.reduce((totalPizzas, pizza) => totalPizzas + pizza.cantidad, 0);
 	console.log(totalPizzas);
 
+    const totalPagar = carrito.reduce((totalPagar, pizza) => totalPagar + pizza.price * pizza.cantidad, 0)
+    console.log(totalPagar)
+
     
 	console.log("carrito", carrito);
 
@@ -62,8 +61,9 @@ export const PizzaPageProvider = ({ children }) => {
 		setCarrito,
 		agregarAlCarrito,
 		regresar,
-        totalPizzas
-	};
+        totalPizzas,
+        totalPagar
+    };
 	console.log("datos de las pizzas", pizzas);
 
 	return <PizzaPageContext.Provider value={dataProvider}>{children}</PizzaPageContext.Provider>;

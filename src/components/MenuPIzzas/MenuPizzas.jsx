@@ -33,7 +33,7 @@ const MenuPizzas = () => {
 						</ul>
                         <p className="text-center text-2xl font-bold border-t-2 m-3">{`$ ${pizza.price}`}</p>
 						<div className="flex justify-around card-body">
-							<Link to={`/pizza/${pizza.id}`} className=" bg-ros border border-neutral-500 px-4 py-2 rounded-xl">
+							<Link to={`pizza/${pizza.id}`} className=" bg-ros border border-neutral-500 px-4 py-2 rounded-xl">
 								Ver mas...
 							</Link>
 							<button onClick={() => handleAgregarAlCarrito(pizza)} className="px-4 py-2 bg-green-400 rounded-xl">Agregar al carrito</button>

@@ -7,9 +7,9 @@ import { NotFoundPage } from "../pages/NotFoundPage";
 const MyRoutes = () => {
 	return (
 		<Routes>
-			<Route path="/" element={<IndexPage />}></Route>
-			<Route path="/pizza/:id" element={<PizzaDetail />}></Route>
-			<Route path="/carrito" element={<Carrito />}></Route>
+			<Route path="/pizzeria_mamma_mia" element={<IndexPage />}></Route>
+			<Route path="pizzeria_mamma_mia/pizza/:id" element={<PizzaDetail />}></Route>
+			<Route path="pizzeria_mamma_mia/carrito" element={<Carrito />}></Route>
 			<Route path="*" element={<NotFoundPage />}></Route>
 		</Routes>
 	);

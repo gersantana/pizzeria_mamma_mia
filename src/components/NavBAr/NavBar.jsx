@@ -8,14 +8,14 @@ const NavBar = () => {
 	return (
 		<nav className="flex flex-row gap-5 justify-around items-center bg-orange-400 bg-opacity-80 backdrop-blur-md flex-wrap px-5 nav_container fixed top-0 w-full z-10 ">
 			<div>
-				<Link to={"/"}><img className="w-12" src="../img2.png" alt="Logo"></img></Link>
+				<Link to={"pizzeria_mamma_mia/"}><img className="w-12" src="../img2.png" alt="Logo"></img></Link>
 			</div>
 			<ul className="flex gap-5 font-medium">
 				<li>
-					<NavLink to={"/"}>Inicio</NavLink>
+					<NavLink to={"pizzeria_mamma_mia/"}>Inicio</NavLink>
 				</li>
 				<li>
-                    <NavLink to={"/carrito"}>{`Carrito (${totalPizzas})`}</NavLink>
+                    <NavLink to={"pizzeria_mamma_mia/carrito"}>{`Carrito (${totalPizzas})`}</NavLink>
                 </li>
 			</ul>
 		</nav>
