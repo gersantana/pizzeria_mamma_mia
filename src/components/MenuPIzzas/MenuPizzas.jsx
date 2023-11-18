@@ -11,8 +11,8 @@ const MenuPizzas = () => {
         return <div className="text-center mt-48 text-4xl font-medium">Cargando...</div>;
     }
 
-	const handleAgregarAlCarrito = (ingrediente) => {
-		agregarAlCarrito(ingrediente)
+	const handleAgregarAlCarrito = (pizza) => {
+		agregarAlCarrito(pizza)
 	}
 	return (
 		<>
@@ -36,7 +36,7 @@ const MenuPizzas = () => {
 							<Link to={`/pizza/${pizza.id}`} className=" bg-ros border border-neutral-500 px-4 py-2 rounded-xl">
 								Ver mas...
 							</Link>
-							<button onClick={() => handleAgregarAlCarrito(pizza.ingredients)} className="px-4 py-2 bg-green-400 rounded-xl">Agregar al carrito</button>
+							<button onClick={() => handleAgregarAlCarrito(pizza)} className="px-4 py-2 bg-green-400 rounded-xl">Agregar al carrito</button>
 						</div>
                         </div>
 						

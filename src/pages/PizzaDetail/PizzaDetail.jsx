@@ -1,17 +1,12 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./PizzaDetail.css";
 import { useContext } from "react";
 import { PizzaPageContext } from "../../context/MyContext";
 const PizzaDetail = () => {
 	const { id } = useParams();
-	const { pizzas, loading, agregarAlCarrito } = useContext(PizzaPageContext);
+	const { pizzas, loading, agregarAlCarrito, regresar } = useContext(PizzaPageContext);
 	const pizza = pizzas.find((pizzaFiltrada) => pizzaFiltrada.id == id);
-	const navigate = useNavigate();
-
-	//Funcion regresar pag anterior
-	const regresar = () => {
-		navigate(-1);
-	}; 
+	
 
 	if(loading) {
         return <div className="text-center mt-48 text-4xl font-medium">Cargando...</div>;
