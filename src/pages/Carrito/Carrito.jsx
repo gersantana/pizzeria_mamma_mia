@@ -4,28 +4,31 @@ import { PizzaPageContext } from "../../context/MyContext";
 const Carrito = () => {
 	const { carrito, regresar, setCarrito, totalPagar } = useContext(PizzaPageContext);
 
-  //función de incrementar con el botón +
+	//función de incrementar con el botón +
 	const incrementarCantidad = (pizzaAgregada) => {
 		const carritoActualizado = carrito.map((p) => (p.id === pizzaAgregada.id ? { ...p, cantidad: p.cantidad + 1 } : p));
 		setCarrito(carritoActualizado);
 	};
 
-  //función de decremento con el botón -
-  const decrementarCantidad = (pizzaAgregada) => {
-    if (pizzaAgregada.cantidad === 1) {
-        // Verificar si se desea eliminar la única pizza del carrito
-        const confirmacion = window.confirm('¿Estás seguro que deseas eliminar este artículo del carrito?');
-
-        if (!confirmacion) {
-            return; // No hacer nada si el usuario elige "Cancelar"
-        }
-    }
+	//función de decremento con el botón -
+	const decrementarCantidad = (pizzaAgregada) => {
+		if (pizzaAgregada.cantidad === 1) {
+			// Verificar si se desea eliminar la única pizza del carrito
+			const confirmacion = window.confirm("¿Estás seguro que deseas eliminar este artículo del carrito?");
+			// Borra la pizza del carrito
+				carrito.shift(pizzaAgregada);
+        
+			if (!confirmacion) {
+				return; // No hacer nada si el usuario elige "Cancelar"
+			}
+		}
 		const carritoActualizado = carrito.map((p) => (p.id === pizzaAgregada.id && p.cantidad > 1 ? { ...p, cantidad: p.cantidad - 1 } : p));
-    setCarrito(carritoActualizado);
-};
+		setCarrito(carritoActualizado);
+	};
 
-	const calcularPrecioTotal = (pizza) => {
-		return pizza.price * pizza.cantidad;
+	const calcularPrecioTotal = (pizzaAgregada) => {
+		const precioGrupal =  pizzaAgregada.price * pizzaAgregada.cantidad;
+    return precioGrupal.toLocaleString('cd')
 	};
 
 	return (
@@ -44,17 +47,21 @@ const Carrito = () => {
 							<div className=" flex font-medium gap-3 items-center ">
 								<p>{`$ ${calcularPrecioTotal(pizzaAgregada)}`}</p>
 								<div className="flex gap-2 items-center">
-									<button className="px-2 py-1 border" onClick={() => decrementarCantidad(pizzaAgregada)}>-</button>
+									<button className="px-2 py-1 border" onClick={() => decrementarCantidad(pizzaAgregada)}>
+										-
+									</button>
 									<p className=" border p-1 px-3"> {pizzaAgregada.cantidad}</p>
-									<button className="px-2 py-1 border" onClick={() => incrementarCantidad(pizzaAgregada)}>+</button>
+									<button className="px-2 py-1 border" onClick={() => incrementarCantidad(pizzaAgregada)}>
+										+
+									</button>
 								</div>
 							</div>
 						</div>
 					))}
-          <div className="flex flex-col">
-            <p className="font-bold">{`Total a pagar: $${totalPagar}`}</p>
-            <button className="flex items-center gap-1 mt-10 mx-auto border border-neutral-500 px-4 py-2 rounded-xl bg-green-300">Pagar</button>
-          </div>
+					<div className="flex flex-col">
+						<p className="font-bold">{`Total a pagar: $${totalPagar}`}</p>
+						<button className="flex items-center gap-1 mt-10 mx-auto border border-neutral-500 px-4 py-2 rounded-xl bg-green-300">Pagar</button>
+					</div>
 				</div>
 			)}
 			<div className="flex">

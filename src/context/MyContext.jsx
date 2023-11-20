@@ -47,7 +47,7 @@ export const PizzaPageProvider = ({ children }) => {
 	const totalPizzas = carrito.reduce((totalPizzas, pizza) => totalPizzas + pizza.cantidad, 0);
 	console.log(totalPizzas);
 
-    const totalPagar = carrito.reduce((totalPagar, pizza) => totalPagar + pizza.price * pizza.cantidad, 0)
+    const totalPagar = carrito.reduce((totalPagar, pizza) => totalPagar + pizza.price * pizza.cantidad, 0).toLocaleString('es-ES')
     console.log(totalPagar)
 
     
